@@ -65,8 +65,9 @@ public class RecordRemover extends RecordSetup {
         return next;
     }
 
-    public void setParent(String string, Object object) {
+    public RecordRemover setParent(String string, Object object) {
         this.parentString = string;
         this.parentObject = object;
+        return this;
     }
 }

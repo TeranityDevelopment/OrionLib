@@ -77,16 +77,18 @@ public class RecordInserter extends RecordSetup {
         }
     }
 
-    public void addRecord(String... records) {
+    public RecordInserter addRecord(String... records) {
         for (String record : records) {
             this.records.add(record);
         }
+        return this;
     }
 
-    public void addObject(Object... objects) {
+    public RecordInserter addObject(Object... objects) {
         for (Object object : objects) {
             this.objects.add(object);
         }
+        return this;
     }
 
     public OrionTable getOrionTable() {

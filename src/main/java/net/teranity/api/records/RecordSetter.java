@@ -1,7 +1,6 @@
 package net.teranity.api.records;
 
 import net.teranity.api.OrionConnection;
-import net.teranity.api.OrionConnector;
 import net.teranity.api.OrionTable;
 
 import java.sql.Connection;
@@ -49,13 +48,24 @@ public class RecordSetter extends RecordSetup {
         }
     }
 
-    public void checkPreviousObject() {
-        RecordGetter recordGetter = new RecordGetter(orionTable);
-        recordGetter.setSelect(selectString);
-        recordGetter.setParent(parentString, parentObject);
-        recordGetter.setup();
+    public RecordSetter setSelect(String string, Object object) {
+        this.selectString = string;
+        this.selectObject = object;
+        return this;
+    }
 
-        previousObject = recordGetter.get();
+    public RecordSetter setParent(String string, Object object) {
+        this.parentString = string;
+        this.parentObject = object;
+        return this;
+    }
+
+    public void checkPreviousObject() {
+        RecordGetter recordGetter = new RecordGetter(orionTable)
+                .setSelect(selectString)
+                .setParent(parentString, parentObject);
+        recordGetter.setup();
+        this.previousObject = recordGetter.get();
     }
 
     public OrionTable getOrionTable() {

@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class RecordGetter extends RecordSetup{
+public class RecordGetter extends RecordSetup {
     private OrionTable orionTable;
 
     private OrionConnection orionConnection;
@@ -69,13 +69,15 @@ public class RecordGetter extends RecordSetup{
         return parentString;
     }
 
-    public void setSelect(String select) {
+    public RecordGetter setSelect(String select) {
         this.select = select;
+        return this;
     }
 
-    public void setParent(String name, Object object) {
+    public RecordGetter setParent(String name, Object object) {
         this.parentString = parentString;
         this.parentObject = object;
+        return this;
     }
 
     public OrionTable getOrionTable() {
