@@ -39,19 +39,19 @@ public class RecordInserter extends RecordSetup {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (String str : records) {
-            stringBuilder.append(str + ",");
+            stringBuilder.append(str + ", ");
         }
         for (Object obj : objects) {
-            stringBuilder1.append("?,");
+            stringBuilder1.append("?, ");
         }
 
         int length = stringBuilder.length();
-        length = length - 1;
+        length = length - 2;
 
         stringBuilder.deleteCharAt(length);
 
         length = stringBuilder1.length();
-        length = length - 1;
+        length = length - 2;
 
         stringBuilder1.deleteCharAt(length);
         try {
