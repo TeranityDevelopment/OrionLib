@@ -27,14 +27,13 @@ public class OrionConnector {
     }
 
     public OrionConnection connect() throws SQLException {
-        if (orionConnection != null) return null;
-
         connecting = true;
 
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + database);
         hikariConfig.setUsername(username);
         hikariConfig.setPassword(password);
+        hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
         hikariConfig.addDataSourceProperty("useSSL", false);
         dataSource = new HikariDataSource(hikariConfig);
 

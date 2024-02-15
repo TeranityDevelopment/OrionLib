@@ -28,7 +28,7 @@ public class OrionTable {
         if (connection == null) return false;
 
         try {
-            String sql = "select * form " + tableName;
+            String sql = "select * from " + tableName;
             PreparedStatement statement = connection.prepareStatement(sql);
 
             ResultSet resultSet = statement.executeQuery();
