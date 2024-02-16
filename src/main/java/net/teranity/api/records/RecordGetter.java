@@ -36,9 +36,10 @@ public class RecordGetter extends RecordSetup {
             String sql;
             if (parentString == null && parentObject == null) {
                 sql = "select " + select + " from " + orionTable.getTableName();
+            } else {
+                sql = "select " + select + " from " + orionTable.getTableName() + " where " + parentString + " = ?";
             }
 
-            sql = "select " + select + " from " + orionTable.getTableName() + " where " + parentString + " = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             if (parentObject != null) {
                 statement.setObject(1, parentObject);
